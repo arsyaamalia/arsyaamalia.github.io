@@ -1,113 +1,952 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  </head>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Arsya Amalia Ristias — Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0D0F14;
+    --surface: #13161D;
+    --surface2: #1A1E28;
+    --border: #232735;
+    --accent: #4F8EF7;
+    --accent2: #7FBAFF;
+    --green: #3EDAA0;
+    --amber: #F5C842;
+    --text: #E8EAF0;
+    --muted: #6B7280;
+    --mono: 'DM Mono', monospace;
+    --serif: 'DM Serif Display', serif;
+    --sans: 'DM Sans', sans-serif;
+  }
 
-  <style>
-    body{
-      font-family: 'Poppins', sans-serif;
-    }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    .blackblue{
-      background-color: #1B262C;
-    }
+  html { scroll-behavior: smooth; }
 
-    .darkblue{
-      background-color: #0F4C75;
-    }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-    .lightblue{
-      background-color: #3282B8;
-    }
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
 
-    .winter{
-      background-color: #BBE1FA;
-    }
+  /* ── GRID LINES ── */
+  .grid-bg {
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+  }
 
-    .white{
-      background-color: #FFFFFF;
-    }
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    background: rgba(13,15,20,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
 
-    .textblackblue{
-      color: #1B262C;
-    }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
 
-    .textdarkblue{
-      color: #0F4C75;
-    }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
 
-    .textlightblue{
-      color: #3282B8;
-    }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+  }
 
-    .textwinter{
-      color: #BBE1FA;
-    }
+  .nav-links a:hover { color: var(--text); }
 
-    .textwhite{
-      color: #FFFFFF;
-    }
+  /* ── SECTIONS ── */
+  section {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 120px 48px;
+  }
 
-    .reguler{
-      font-weight: 400;
-    }
+  section:first-of-type { padding-top: 160px; }
 
-    .medium{
-      font-weight: 500;
-    }
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 100px !important;
+  }
 
-    .semibold{
-      font-weight: 600;
-    }
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--green);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.2s;
+  }
 
-    .bold{
-      font-weight: 700;
-    }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(52px, 7vw, 96px);
+    line-height: 1.02;
+    color: var(--text);
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.35s;
+  }
 
-    .logo{
-      width: 25px;
-      border-radius: 5px;
-    }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent2);
+  }
 
-    .nav {
-      margin-bottom: 0;
-      padding: 15px;
-      box-shadow: 0px 2px 5px rgba(27, 38, 44, 0.1);
-      font-size: 10pt;
-    }
-    
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-  </style>
+  .hero-sub {
+    font-family: var(--sans);
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 560px;
+    margin-top: 28px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.5s;
+  }
 
-  <body>
-    <ul class="nav nav-pills justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link textlightblue bold" aria-current="page" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link textblackblue medium" href="#">My Intro</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link textblackblue medium" href="#">Experiences</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link textblackblue medium" href="#">Projects</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link textblackblue medium" href="#">Contact</a>
-      </li>
-    </ul>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-  </body>
+  .hero-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.65s;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-family: var(--mono);
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.04em;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid var(--accent);
+  }
+
+  .btn-primary:hover { background: var(--accent2); border-color: var(--accent2); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 80px;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.8s;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 40px;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--green);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.1;
+    margin-bottom: 60px;
+    color: var(--text);
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .about-text p strong { color: var(--text); font-weight: 500; }
+
+  .about-side {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .about-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .about-card-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--green);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .about-card-value {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--green));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 60px rgba(79,142,247,0.08);
+  }
+
+  .project-card:hover::before { opacity: 1; }
+
+  .project-card.featured {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .project-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 16px;
+  }
+
+  .tag-automation { background: rgba(62,218,160,0.12); color: var(--green); }
+  .tag-analytics  { background: rgba(79,142,247,0.12); color: var(--accent2); }
+  .tag-ml         { background: rgba(245,200,66,0.12); color: var(--amber); }
+  .tag-bi         { background: rgba(160,100,240,0.12); color: #C084FC; }
+
+  .project-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .project-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .project-metrics {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .metric {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .metric-val {
+    font-family: var(--mono);
+    font-size: 18px;
+    color: var(--green);
+    font-weight: 500;
+  }
+
+  .metric-key {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-top: 2px;
+  }
+
+  .project-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .tool-chip {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 3px;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .skill-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+  }
+
+  .skill-group-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .skill-name {
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .skill-bar-wrap {
+    width: 80px;
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .skill-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--green));
+    border-radius: 2px;
+    animation: growBar 1.2s ease forwards;
+    transform-origin: left;
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .exp-item:first-child { padding-top: 0; }
+
+  .exp-date {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    padding-top: 4px;
+  }
+
+  .exp-company {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .exp-role {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .exp-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  /* ── CONTACT ── */
+  .contact-inner {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-inner::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(79,142,247,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .contact-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 48px);
+    margin-bottom: 16px;
+  }
+
+  .contact-sub {
+    color: var(--muted);
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 32px 48px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes growBar {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 80px 24px; }
+    .hero h1 { font-size: 44px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 8px; }
+    .contact-inner { padding: 40px 24px; }
+    .hero-stats { gap: 32px; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">arsya.ar</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-tag">↳ Data Analyst · Surabaya, Indonesia</p>
+  <h1>Arsya Amalia<br><em>Ristias</em></h1>
+  <p class="hero-sub">I turn operational data into decisions — through automation, clear reporting, and analytics that actually get used.</p>
+  <div class="hero-links">
+    <a href="#projects" class="btn btn-primary">View Projects ↓</a>
+    <a href="mailto:arsyaamalia1@gmail.com" class="btn btn-ghost">Get in Touch</a>
+    <a href="https://linkedin.com/in/arsyaamalia/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">1+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div>
+      <div class="stat-num">2</div>
+      <div class="stat-label">Automations Built</div>
+    </div>
+    <div>
+      <div class="stat-num">~80%</div>
+      <div class="stat-label">SLA Target Hit Rate</div>
+    </div>
+    <div>
+      <div class="stat-num">3.92</div>
+      <div class="stat-label">University GPA</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label reveal">// about me</p>
+  <h2 class="section-title reveal">The person<br>behind the data</h2>
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <p>I'm a data analyst based in Surabaya with a background in Information Systems and a year of real-world experience doing the kind of work most analysts talk about in job interviews — <strong>actually building the automations, maintaining the dashboards, and fixing the SLA before it breaks.</strong></p>
+      <p>My day-to-day at Gear Inc involved monitoring multiple content moderation queues in real time, building Apps Script automations that replaced manual processes, and writing interval-level root cause analyses for SLA failures. I like knowing why something broke, not just that it did.</p>
+      <p>Outside of work I co-founded an event platform (on pause for now), mentor developers at Google Developer Groups Cloud Surabaya, and have a machine learning background from Bangkit Academy.</p>
+    </div>
+    <div class="about-side">
+      <div class="about-card">
+        <div class="about-card-label">Currently</div>
+        <div class="about-card-value">Open to Data Analyst roles — full-time, hybrid or remote</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-label">Education</div>
+        <div class="about-card-value">B.Sc. Information Systems<br>UPN Veteran East Java · GPA 3.92 · Oct 2024</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-label">Based in</div>
+        <div class="about-card-value">Surabaya, East Java, Indonesia<br><span style="color:var(--muted);font-size:13px;">Open to relocation for the right opportunity</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label reveal">// selected work</p>
+  <h2 class="section-title reveal">Projects &<br>Automations</h2>
+  <div class="projects-grid">
+
+    <!-- FEATURED -->
+    <div class="project-card featured reveal">
+      <div>
+        <span class="project-tag tag-automation">Automation</span>
+        <h3 class="project-title">Login Hours & Attendance Report Automation</h3>
+        <p class="project-desc">Built two end-to-end Google Apps Script automations for the SUB-RTA team at Gear Inc. Each script downloads ByteWorks workforce data via daily trigger, parses CSV with header-row skipping, filters relevant columns, and accumulates data indefinitely into a centralized Google Sheet — replacing a manual daily process that used to take 15 minutes per report.</p>
+        <div class="project-tools">
+          <span class="tool-chip">Google Apps Script</span>
+          <span class="tool-chip">Google Sheets</span>
+          <span class="tool-chip">CSV Parsing</span>
+          <span class="tool-chip">ByteWorks API</span>
+          <span class="tool-chip">Trigger Automation</span>
+        </div>
+      </div>
+      <div>
+        <div class="project-metrics">
+          <div class="metric">
+            <span class="metric-val">0%</span>
+            <span class="metric-key">Error Rate</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">3–5 min</span>
+            <span class="metric-key">Down from 15 min</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">2</span>
+            <span class="metric-key">Automations Deployed</span>
+          </div>
+        </div>
+        <div style="margin-top:28px; padding:24px; background:var(--bg); border-radius:6px; border:1px solid var(--border);">
+          <div style="font-family:var(--mono);font-size:12px;color:var(--green);margin-bottom:12px;">// daily_trigger.gs</div>
+          <div style="font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;">
+            <span style="color:#7FBAFF;">function</span> <span style="color:var(--text);">downloadLoginHours</span>() {<br>
+            &nbsp;&nbsp;<span style="color:var(--muted);">// 07:05 WIB daily trigger</span><br>
+            &nbsp;&nbsp;<span style="color:#7FBAFF;">const</span> data = fetchByteworks();<br>
+            &nbsp;&nbsp;<span style="color:#7FBAFF;">const</span> parsed = parseCSV(data);<br>
+            &nbsp;&nbsp;appendToSheet(parsed);<br>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HC CALCULATOR -->
+    <div class="project-card reveal">
+      <span class="project-tag tag-automation">Automation</span>
+      <h3 class="project-title">HC Calculator Automation</h3>
+      <p class="project-desc">Daily Apps Script automation for headcount management: copies a template file, replaces the ByteWorks data sheet, and syncs the output URL back into the RTM spreadsheet. Eliminated a manual daily task for the SUB-RTA team with a two-step flow separating RTM access from data download.</p>
+      <div class="project-tools">
+        <span class="tool-chip">Google Apps Script</span>
+        <span class="tool-chip">Google Drive API</span>
+        <span class="tool-chip">IMPORTRANGE</span>
+        <span class="tool-chip">Sheet Management</span>
+      </div>
+    </div>
+
+    <!-- SLA ANALYTICS -->
+    <div class="project-card reveal">
+      <span class="project-tag tag-analytics">Analytics</span>
+      <h3 class="project-title">Real-Time SLA & Queue Analytics</h3>
+      <p class="project-desc">Interval-level (15-minute) SLA failure analysis across 5 content moderation queues. Identified recurring root causes — cascading backlogs, AHT violations, OU deficits, content pool reductions — and delivered moderator-level performance scorecards at daily, weekly, and monthly granularity.</p>
+      <div class="project-metrics" style="margin-bottom:16px;">
+        <div class="metric">
+          <span class="metric-val">~80%</span>
+          <span class="metric-key">Avg SLA Hit Rate</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val">5</span>
+          <span class="metric-key">Queues Monitored</span>
+        </div>
+      </div>
+      <div class="project-tools">
+        <span class="tool-chip">Google Sheets</span>
+        <span class="tool-chip">COUNTIFS / INDIRECT</span>
+        <span class="tool-chip">INDEX/MATCH</span>
+        <span class="tool-chip">Dynamic Arrays</span>
+      </div>
+    </div>
+
+    <!-- LOOKER STUDIO -->
+    <div class="project-card reveal">
+      <span class="project-tag tag-bi">BI & Dashboard</span>
+      <h3 class="project-title">Operational Dashboard — Telkom Indonesia</h3>
+      <p class="project-desc">Built a weekly performance dashboard in Looker Studio for a Digital Broadcast Network Services project at RRI (Radio Republik Indonesia), covering project data from input and cleaning through to visualization. Also produced daily project escort status recaps for project leads.</p>
+      <div class="project-tools">
+        <span class="tool-chip">Looker Studio</span>
+        <span class="tool-chip">Google Sheets</span>
+        <span class="tool-chip">Data Cleaning</span>
+        <span class="tool-chip">Data Visualization</span>
+      </div>
+    </div>
+
+    <!-- ML -->
+    <div class="project-card reveal">
+      <span class="project-tag tag-ml">Machine Learning</span>
+      <h3 class="project-title">Event Recommendation System — Eventhings</h3>
+      <p class="project-desc">Designed and integrated an ML-based recommendation engine for an event listing platform. Built to match event organizers and attendees based on content preferences and behavioral signals, improving relevance of listings surfaced to users.</p>
+      <div class="project-tools">
+        <span class="tool-chip">Python</span>
+        <span class="tool-chip">scikit-learn</span>
+        <span class="tool-chip">TensorFlow</span>
+        <span class="tool-chip">Recommendation Systems</span>
+      </div>
+    </div>
+
+    <!-- HIGO -->
+    <div class="project-card reveal">
+      <span class="project-tag tag-analytics">Analytics</span>
+      <h3 class="project-title">Ad Campaign & Merchant Analytics — HIGO</h3>
+      <p class="project-desc">Tracked digital advertising metrics (CTR, impressions, completed views) for FMCG brands. Built data pipelines for merchant performance reporting, implemented Amplitude Analytics for session tracking, and ran Python Selenium scraping projects to map WiFi merchant pricing trends.</p>
+      <div class="project-tools">
+        <span class="tool-chip">Python Selenium</span>
+        <span class="tool-chip">Amplitude Analytics</span>
+        <span class="tool-chip">Google Analytics</span>
+        <span class="tool-chip">Pandas</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label reveal">// toolkit</p>
+  <h2 class="section-title reveal">Skills &<br>Tools</h2>
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Data & Reporting</div>
+      <div class="skill-item"><span class="skill-name">Google Sheets (Advanced)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Looker Studio</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Power BI</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Excel</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Automation & Engineering</div>
+      <div class="skill-item"><span class="skill-name">Google Apps Script</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Python (Pandas, NumPy)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Python Selenium</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">ETL Pipelines</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div></div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Analytics & ML</div>
+      <div class="skill-item"><span class="skill-name">SLA & Workforce Analytics</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">TensorFlow</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:72%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">scikit-learn</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Google Analytics</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label reveal">// career</p>
+  <h2 class="section-title reveal">Work<br>Experience</h2>
+  <div class="exp-list">
+
+    <div class="exp-item reveal">
+      <div>
+        <div class="exp-date">Apr 2025 – Apr 2026</div>
+        <div class="exp-company">Gear Inc</div>
+      </div>
+      <div>
+        <div class="exp-role">Real-Time Data Analyst</div>
+        <p class="exp-desc">Built and maintained SLA reports, automated workforce data pipelines, and monitored real-time queue performance across 5 content moderation queues. Delivered 2 Apps Script automations with 0% error rate, maintained ~80% SLA achievement rate for a full year.</p>
+        <div class="exp-tags">
+          <span class="tool-chip">Apps Script</span>
+          <span class="tool-chip">Google Sheets</span>
+          <span class="tool-chip">SLA Analytics</span>
+          <span class="tool-chip">WFM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div>
+        <div class="exp-date">Jan 2025 – Apr 2025</div>
+        <div class="exp-company">HIGO</div>
+      </div>
+      <div>
+        <div class="exp-role">Data Scientist</div>
+        <p class="exp-desc">Ad campaign analytics, merchant data pipelines, Amplitude Analytics setup, and Python Selenium scraping projects for WiFi merchant pricing trend analysis.</p>
+        <div class="exp-tags">
+          <span class="tool-chip">Python</span>
+          <span class="tool-chip">Amplitude</span>
+          <span class="tool-chip">Google Analytics</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div>
+        <div class="exp-date">Nov 2022 – Feb 2023</div>
+        <div class="exp-company">Telkom Indonesia</div>
+      </div>
+      <div>
+        <div class="exp-role">Solution Support Intern</div>
+        <p class="exp-desc">Weekly Looker Studio dashboard for RRI Digital Broadcast Network project, technical proposals for AI/Streaming solutions, daily project recap reporting.</p>
+        <div class="exp-tags">
+          <span class="tool-chip">Looker Studio</span>
+          <span class="tool-chip">Google Sheets</span>
+          <span class="tool-chip">Data Visualization</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div>
+        <div class="exp-date">May 2023 – Jun 2023</div>
+        <div class="exp-company">ID/X Partners</div>
+      </div>
+      <div>
+        <div class="exp-role">Data Engineering Intern</div>
+        <p class="exp-desc">ETL pipeline development and Data Warehouse design for client analytics projects.</p>
+        <div class="exp-tags">
+          <span class="tool-chip">ETL</span>
+          <span class="tool-chip">Data Warehouse</span>
+          <span class="tool-chip">SQL</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner reveal">
+    <h2 class="contact-title">Let's work together</h2>
+    <p class="contact-sub">Open to Data Analyst roles — full-time, hybrid, or remote.<br>Based in Surabaya, open to relocation.</p>
+    <div class="contact-links">
+      <a href="mailto:arsyaamalia1@gmail.com" class="btn btn-primary">arsyaamalia1@gmail.com</a>
+      <a href="https://linkedin.com/in/arsyaamalia/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+      <a href="tel:+6282228544074" class="btn btn-ghost">+62 822-2854-4074</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span style="color:var(--accent);">arsya.ar</span> &nbsp;·&nbsp; built with intention &nbsp;·&nbsp; Surabaya, Indonesia &nbsp;·&nbsp; 2026
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--text)' : '';
+    });
+  });
+</script>
+</body>
 </html>
