@@ -761,7 +761,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <img src="arsya_logo.svg" alt="Arsya logo" style="height:72px; width:auto; margin-bottom:24px; opacity:0; animation:fadeUp 0.6s ease forwards 0.1s;">
+  <img src="arsya_logo.svg" alt="Arsya logo" style="display:block; height:72px; width:auto; margin-bottom:24px; opacity:0; animation:fadeUp 0.6s ease forwards 0.1s;">
   <p class="hero-tag">↳ Data Analyst · Surabaya, Indonesia</p>
   <h1>Arsya Amalia<br><em>Ristias</em></h1>
   <p class="hero-sub">I turn operational data into decisions — through automation, clear reporting, and analytics that actually get used.</p>
@@ -827,8 +827,8 @@
     <div class="project-card featured reveal">
       <div>
         <span class="project-tag tag-automation">Automation</span>
-        <h3 class="project-title">Login Hours & Attendance Report Automation</h3>
-        <p class="project-desc">Built two end-to-end Google Apps Script automations for the SUB-RTA team at Gear Inc. Each script downloads ByteWorks workforce data via daily trigger, parses CSV with header-row skipping, filters relevant columns, and accumulates data indefinitely into a centralized Google Sheet — replacing a manual daily process that used to take 15 minutes per report.</p>
+        <h3 class="project-title">Attendance & Login Hours Report Automation</h3>
+      <p class="project-desc">Built two Google Apps Script automations for the SUB-RTA team at Gear Inc — one for attendance reporting, one for login hours reporting. Each runs on a daily trigger at 07:05 WIB, downloads ByteWorks workforce data, parses the CSV with header-row skipping, filters relevant columns, and accumulates records indefinitely into a centralized Google Sheet. Replaced a manual process that previously took ~15 minutes per report.</p>
         <div class="project-tools">
           <span class="tool-chip">Google Apps Script</span>
           <span class="tool-chip">Google Sheets</span>
@@ -863,19 +863,6 @@
             }
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- HC CALCULATOR -->
-    <div class="project-card reveal">
-      <span class="project-tag tag-automation">Automation</span>
-      <h3 class="project-title">HC Calculator Automation</h3>
-      <p class="project-desc">Daily Apps Script automation for headcount management: copies a template file, replaces the ByteWorks data sheet, and syncs the output URL back into the RTM spreadsheet. Eliminated a manual daily task for the SUB-RTA team with a two-step flow separating RTM access from data download.</p>
-      <div class="project-tools">
-        <span class="tool-chip">Google Apps Script</span>
-        <span class="tool-chip">Google Drive API</span>
-        <span class="tool-chip">IMPORTRANGE</span>
-        <span class="tool-chip">Sheet Management</span>
       </div>
     </div>
 
