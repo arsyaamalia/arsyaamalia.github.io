@@ -501,22 +501,6 @@
     color: var(--text);
   }
 
-  .skill-bar-wrap {
-    width: 80px;
-    height: 3px;
-    background: var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .skill-bar {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent), var(--green));
-    border-radius: 2px;
-    animation: growBar 1.2s ease forwards;
-    transform-origin: left;
-  }
-
   /* ── EXPERIENCE ── */
   .exp-list {
     display: flex;
@@ -630,11 +614,6 @@
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes growBar {
-    from { transform: scaleX(0); }
-    to   { transform: scaleX(1); }
   }
 
   .reveal {
@@ -784,8 +763,8 @@
       <div class="stat-label">Faster Reporting</div>
     </div>
     <div>
-      <div class="stat-num">0%</div>
-      <div class="stat-label">Error Rate</div>
+      <div class="stat-num">Zero</div>
+      <div class="stat-label">Critical Errors in Production</div>
     </div>
     <div>
       <div class="stat-num">~80%</div>
@@ -944,27 +923,37 @@
   <p class="section-label reveal">// toolkit</p>
   <h2 class="section-title reveal">Skills &<br>Tools</h2>
   <div class="skills-grid">
+
     <div class="skill-group reveal">
-      <div class="skill-group-title">Data & Reporting</div>
-      <div class="skill-item"><span class="skill-name">Google Sheets (Advanced)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div></div>
-      <div class="skill-item"><span class="skill-name">Looker Studio</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
-      <div class="skill-item"><span class="skill-name">Power BI</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
-      <div class="skill-item"><span class="skill-name">Excel</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+      <div class="skill-group-title">Data & Reporting Tools</div>
+      <div class="skill-item"><span class="skill-name">Google Sheets (Advanced)</span></div>
+      <div class="skill-item"><span class="skill-name">Looker Studio</span></div>
+      <div class="skill-item"><span class="skill-name">Power BI</span></div>
+      <div class="skill-item"><span class="skill-name">Excel</span></div>
+      <div class="skill-item"><span class="skill-name">Google Analytics</span></div>
+      <div class="skill-item"><span class="skill-name">Amplitude Analytics</span></div>
     </div>
+
     <div class="skill-group reveal">
-      <div class="skill-group-title">Automation & Engineering</div>
-      <div class="skill-item"><span class="skill-name">Google Apps Script</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
-      <div class="skill-item"><span class="skill-name">Python (Pandas, NumPy)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
-      <div class="skill-item"><span class="skill-name">Python Selenium</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
-      <div class="skill-item"><span class="skill-name">ETL Pipelines</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div></div>
+      <div class="skill-group-title">Programming & Automation</div>
+      <div class="skill-item"><span class="skill-name">Google Apps Script</span></div>
+      <div class="skill-item"><span class="skill-name">Python (Pandas, NumPy)</span></div>
+      <div class="skill-item"><span class="skill-name">Python Selenium</span></div>
+      <div class="skill-item"><span class="skill-name">SQL (Intermediate)</span></div>
+      <div class="skill-item"><span class="skill-name">TensorFlow</span></div>
+      <div class="skill-item"><span class="skill-name">scikit-learn</span></div>
     </div>
+
     <div class="skill-group reveal">
-      <div class="skill-group-title">Analytics & ML</div>
-      <div class="skill-item"><span class="skill-name">SLA & Workforce Analytics</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div></div>
-      <div class="skill-item"><span class="skill-name">TensorFlow</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:72%"></div></div></div>
-      <div class="skill-item"><span class="skill-name">scikit-learn</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div></div>
-      <div class="skill-item"><span class="skill-name">Google Analytics</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div>
+      <div class="skill-group-title">Domain Expertise</div>
+      <div class="skill-item"><span class="skill-name">SLA & Workforce Analytics</span></div>
+      <div class="skill-item"><span class="skill-name">Operational Reporting</span></div>
+      <div class="skill-item"><span class="skill-name">Reporting Automation</span></div>
+      <div class="skill-item"><span class="skill-name">ETL Pipeline Development</span></div>
+      <div class="skill-item"><span class="skill-name">Data Quality & QA</span></div>
+      <div class="skill-item"><span class="skill-name">Machine Learning</span></div>
     </div>
+
   </div>
 </section>
 
@@ -1216,7 +1205,6 @@
     <div class="contact-links">
       <a href="mailto:arsyaamalia1@gmail.com" class="btn btn-primary">arsyaamalia1@gmail.com</a>
       <a href="https://linkedin.com/in/arsyaamalia/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
-      <a href="https://wa.me/6282228544074" target="_blank" class="btn btn-ghost">WhatsApp ↗</a>
     </div>
   </div>
 </section>
