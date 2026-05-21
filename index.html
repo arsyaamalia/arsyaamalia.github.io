@@ -745,7 +745,7 @@
 <!-- HERO -->
 <section class="hero">
   <img src="arsya_logo.svg" alt="Arsya logo" style="display:block; align-self:flex-start; height:72px; width:auto; margin-bottom:24px; opacity:0; animation:fadeUp 0.6s ease forwards 0.1s;">
-  <p class="hero-tag">↳ Data Analyst · Surabaya, Indonesia</p>
+  <p class="hero-tag">↳ Data Analyst · Jakarta, Indonesia</p>
   <h1>Arsya Amalia<br><em>Ristias</em></h1>
   <p class="hero-sub">Data is only as valuable as the decisions it drives. I turn raw, messy data into something clear, reliable, and worth reading.</p>
   <div class="hero-links">
@@ -759,11 +759,11 @@
       <div class="stat-label">Years Experience</div>
     </div>
     <div>
-      <div class="stat-num">5x</div>
+      <div class="stat-num">73%</div>
       <div class="stat-label">Faster Reporting</div>
     </div>
     <div>
-      <div class="stat-num">0</div>
+      <div class="stat-num">0%</div>
       <div class="stat-label">Critical Errors in Production</div>
     </div>
     <div>
@@ -783,7 +783,7 @@
   <h2 class="section-title reveal">The person<br>behind the data</h2>
   <div class="about-grid reveal">
     <div class="about-text">
-      <p>I'm a data analyst based in Surabaya who works best when data has a real job to do — not just sitting in a dashboard, but actually informing a decision.</p>
+      <p>I'm a data analyst based in Jakarta who works best when data has a real job to do — not just sitting in a dashboard, but actually informing a decision.</p>
       <p>My background spans <strong>operational analytics, reporting automation, and a bit of machine learning</strong>, built through a year of real-world experience and a strong academic foundation in Information Systems. I'm comfortable across the full analyst workflow: from wrangling raw data and building pipelines, to designing reports that stakeholders can read without a manual.</p>
       <p>The problems I enjoy solving aren't industry-specific — I'm drawn to any situation where better data visibility leads to better outcomes, and I bring the same structured, detail-oriented approach regardless of the domain.</p>
     </div>
@@ -798,165 +798,9 @@
       </div>
       <div class="about-card">
         <div class="about-card-label">Based in</div>
-        <div class="about-card-value">Surabaya, East Java, Indonesia<br><span style="color:var(--muted);font-size:13px;">Open to relocation for the right opportunity</span></div>
+        <div class="about-card-value">Jakarta, Indonesia<br><span style="color:var(--muted);font-size:13px;">Open to relocation for the right opportunity</span></div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <p class="section-label reveal">// selected work</p>
-  <h2 class="section-title reveal">Projects &<br>Automations</h2>
-  <div class="projects-grid">
-
-    <!-- FEATURED -->
-    <div class="project-card featured reveal">
-      <div>
-        <span class="project-tag tag-automation">Automation</span>
-        <h3 class="project-title">Attendance & Login Hours Report Automation</h3>
-      <p class="project-desc">Built two Google Apps Script automations for the SUB-RTA team at Gear Inc — one for attendance reporting, one for login hours reporting. Each runs on a daily trigger at 07:05 WIB, downloads ByteWorks workforce data, parses the CSV with header-row skipping, filters relevant columns, and accumulates records indefinitely into a centralized Google Sheet. Replaced a manual process that previously took ~15 minutes per report.</p>
-        <div class="project-tools">
-          <span class="tool-chip">Google Apps Script</span>
-          <span class="tool-chip">Google Sheets</span>
-          <span class="tool-chip">CSV Parsing</span>
-          <span class="tool-chip">Trigger Automation</span>
-        </div>
-        <div class="project-metrics" style="margin-top:20px;">
-          <a href="https://github.com/arsyaamalia/workforce-report-automation" target="_blank" class="btn btn-ghost" style="font-size:12px; padding:8px 16px;">GitHub Repo ↗</a>
-          <a href="https://docs.google.com/spreadsheets/d/1cAh1Ko0NwnzyDkwXHPVsxsbAtVxVIZ8g5Tho-WTlEsI/edit?usp=sharing" target="_blank" class="btn btn-primary" style="font-size:12px; padding:8px 16px;">View Demo ↗</a>
-        </div>
-      </div>
-      <div>
-        <div class="project-metrics">
-          <div class="metric">
-            <span class="metric-val">0%</span>
-            <span class="metric-key">Error Rate</span>
-          </div>
-          <div class="metric">
-            <span class="metric-val">3–5 min</span>
-            <span class="metric-key">Down from 15 min</span>
-          </div>
-          <div class="metric">
-            <span class="metric-val">2</span>
-            <span class="metric-key">Automations Deployed</span>
-          </div>
-        </div>
-        <div style="margin-top:28px; padding:24px; background:var(--surface2); border-radius:6px; border:1px solid var(--border);">
-          <div style="font-family:var(--mono);font-size:12px;color:var(--green);margin-bottom:12px;">// daily_trigger.gs</div>
-          <div style="font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;">
-            <span style="color:var(--accent);">function</span> <span style="color:var(--text);">downloadLoginHours</span>() {<br>
-            &nbsp;&nbsp;<span style="color:var(--muted);">// 07:05 WIB daily trigger</span><br>
-            &nbsp;&nbsp;<span style="color:var(--accent);">const</span> data = fetchByteworks();<br>
-            &nbsp;&nbsp;<span style="color:var(--accent);">const</span> parsed = parseCSV(data);<br>
-            &nbsp;&nbsp;appendToSheet(parsed);<br>
-            }
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SLA ANALYTICS -->
-    <div class="project-card reveal">
-      <span class="project-tag tag-analytics">Analytics</span>
-      <h3 class="project-title">Real-Time SLA & Queue Analytics</h3>
-      <p class="project-desc">Interval-level (15-minute) SLA failure analysis across 10 content moderation queues. Identified recurring root causes — cascading backlogs, AHT violations, OU deficits, content pool reductions — and delivered moderator-level performance scorecards at daily, weekly, and monthly granularity.</p>
-      <div class="project-metrics" style="margin-bottom:16px;">
-        <div class="metric">
-          <span class="metric-val">~85%</span>
-          <span class="metric-key">Avg SLA Hit Rate</span>
-        </div>
-        <div class="metric">
-          <span class="metric-val">10</span>
-          <span class="metric-key">Queues Monitored</span>
-        </div>
-      </div>
-      <div class="project-tools">
-        <span class="tool-chip">Google Sheets</span>
-        <span class="tool-chip">COUNTIFS / INDIRECT</span>
-        <span class="tool-chip">INDEX/MATCH</span>
-        <span class="tool-chip">Dynamic Arrays</span>
-      </div>
-    </div>
-
-    <!-- LOOKER STUDIO -->
-    <div class="project-card reveal">
-      <span class="project-tag tag-bi">BI & Dashboard</span>
-      <h3 class="project-title">Operational Dashboard — Telkom Indonesia</h3>
-      <p class="project-desc">Built a weekly performance dashboard in Looker Studio for a Digital Broadcast Network Services project at RRI (Radio Republik Indonesia), covering project data from input and cleaning through to visualization. Also produced daily project escort status recaps for project leads.</p>
-      <div class="project-tools">
-        <span class="tool-chip">Looker Studio</span>
-        <span class="tool-chip">Google Sheets</span>
-        <span class="tool-chip">Data Cleaning</span>
-        <span class="tool-chip">Data Visualization</span>
-      </div>
-    </div>
-
-    <!-- ML -->
-    <div class="project-card reveal">
-      <span class="project-tag tag-ml">Machine Learning</span>
-      <h3 class="project-title">Event Recommendation System — Eventhings</h3>
-      <p class="project-desc">Designed and integrated an ML-based recommendation engine for an event listing platform. Built to match event organizers and attendees based on content preferences and behavioral signals, improving relevance of listings surfaced to users.</p>
-      <div class="project-tools">
-        <span class="tool-chip">Python</span>
-        <span class="tool-chip">scikit-learn</span>
-        <span class="tool-chip">TensorFlow</span>
-        <span class="tool-chip">Recommendation Systems</span>
-      </div>
-    </div>
-
-    <!-- HIGO -->
-    <div class="project-card reveal">
-      <span class="project-tag tag-analytics">Analytics</span>
-      <h3 class="project-title">Ad Campaign & Merchant Analytics — HIGO</h3>
-      <p class="project-desc">Tracked digital advertising metrics (CTR, impressions, completed views) for FMCG brands. Built data pipelines for merchant performance reporting, implemented Amplitude Analytics for session tracking, and ran Python Selenium scraping projects to map WiFi merchant pricing trends.</p>
-      <div class="project-tools">
-        <span class="tool-chip">Python Selenium</span>
-        <span class="tool-chip">Amplitude Analytics</span>
-        <span class="tool-chip">Google Analytics</span>
-        <span class="tool-chip">Pandas</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <p class="section-label reveal">// toolkit</p>
-  <h2 class="section-title reveal">Skills &<br>Tools</h2>
-  <div class="skills-grid">
-
-    <div class="skill-group reveal">
-      <div class="skill-group-title">Data & Reporting Tools</div>
-      <div class="skill-item"><span class="skill-name">Google Sheets (Advanced)</span></div>
-      <div class="skill-item"><span class="skill-name">Looker Studio</span></div>
-      <div class="skill-item"><span class="skill-name">Power BI</span></div>
-      <div class="skill-item"><span class="skill-name">Excel</span></div>
-      <div class="skill-item"><span class="skill-name">Google Analytics</span></div>
-      <div class="skill-item"><span class="skill-name">Amplitude Analytics</span></div>
-    </div>
-
-    <div class="skill-group reveal">
-      <div class="skill-group-title">Programming & Automation</div>
-      <div class="skill-item"><span class="skill-name">Google Apps Script</span></div>
-      <div class="skill-item"><span class="skill-name">Python (Pandas, NumPy)</span></div>
-      <div class="skill-item"><span class="skill-name">Python Selenium</span></div>
-      <div class="skill-item"><span class="skill-name">SQL (Intermediate)</span></div>
-      <div class="skill-item"><span class="skill-name">TensorFlow</span></div>
-      <div class="skill-item"><span class="skill-name">scikit-learn</span></div>
-    </div>
-
-    <div class="skill-group reveal">
-      <div class="skill-group-title">Domain Expertise</div>
-      <div class="skill-item"><span class="skill-name">SLA & Workforce Analytics</span></div>
-      <div class="skill-item"><span class="skill-name">Operational Reporting</span></div>
-      <div class="skill-item"><span class="skill-name">Reporting Automation</span></div>
-      <div class="skill-item"><span class="skill-name">ETL Pipeline Development</span></div>
-      <div class="skill-item"><span class="skill-name">Data Quality & QA</span></div>
-      <div class="skill-item"><span class="skill-name">Machine Learning</span></div>
-    </div>
-
   </div>
 </section>
 
@@ -1125,6 +969,162 @@
   </div>
 </section>
 
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label reveal">// selected work</p>
+  <h2 class="section-title reveal">Projects &<br>Automations</h2>
+  <div class="projects-grid">
+
+    <!-- FEATURED -->
+    <div class="project-card featured reveal">
+      <div>
+        <span class="project-tag tag-automation">Automation</span>
+        <h3 class="project-title">Attendance & Login Hours Report Automation</h3>
+      <p class="project-desc">Built two Google Apps Script automations for the SUB-RTA team at Gear Inc — one for attendance reporting, one for login hours reporting. Each runs on a daily trigger at 07:05 WIB, downloads ByteWorks workforce data, parses the CSV with header-row skipping, filters relevant columns, and accumulates records indefinitely into a centralized Google Sheet. Replaced a manual process that previously took ~15 minutes per report.</p>
+        <div class="project-tools">
+          <span class="tool-chip">Google Apps Script</span>
+          <span class="tool-chip">Google Sheets</span>
+          <span class="tool-chip">CSV Parsing</span>
+          <span class="tool-chip">Trigger Automation</span>
+        </div>
+        <div class="project-metrics" style="margin-top:20px;">
+          <a href="https://github.com/arsyaamalia/workforce-report-automation" target="_blank" class="btn btn-ghost" style="font-size:12px; padding:8px 16px;">GitHub Repo ↗</a>
+          <a href="https://docs.google.com/spreadsheets/d/1cAh1Ko0NwnzyDkwXHPVsxsbAtVxVIZ8g5Tho-WTlEsI/edit?usp=sharing" target="_blank" class="btn btn-primary" style="font-size:12px; padding:8px 16px;">View Demo ↗</a>
+        </div>
+      </div>
+      <div>
+        <div class="project-metrics">
+          <div class="metric">
+            <span class="metric-val">0%</span>
+            <span class="metric-key">Error Rate</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">3–5 min</span>
+            <span class="metric-key">Down from 15 min</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">2</span>
+            <span class="metric-key">Automations Deployed</span>
+          </div>
+        </div>
+        <div style="margin-top:28px; padding:24px; background:var(--surface2); border-radius:6px; border:1px solid var(--border);">
+          <div style="font-family:var(--mono);font-size:12px;color:var(--green);margin-bottom:12px;">// daily_trigger.gs</div>
+          <div style="font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;">
+            <span style="color:var(--accent);">function</span> <span style="color:var(--text);">downloadLoginHours</span>() {<br>
+            &nbsp;&nbsp;<span style="color:var(--muted);">// 07:05 WIB daily trigger</span><br>
+            &nbsp;&nbsp;<span style="color:var(--accent);">const</span> data = fetchByteworks();<br>
+            &nbsp;&nbsp;<span style="color:var(--accent);">const</span> parsed = parseCSV(data);<br>
+            &nbsp;&nbsp;appendToSheet(parsed);<br>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLA ANALYTICS -->
+    <div class="project-card reveal">
+      <span class="project-tag tag-analytics">Analytics</span>
+      <h3 class="project-title">Real-Time SLA & Queue Analytics</h3>
+      <p class="project-desc">Interval-level (15-minute) SLA failure analysis across 10 content moderation queues. Identified recurring root causes — cascading backlogs, AHT violations, OU deficits, content pool reductions — and delivered moderator-level performance scorecards at daily, weekly, and monthly granularity.</p>
+      <div class="project-metrics" style="margin-bottom:16px;">
+        <div class="metric">
+          <span class="metric-val">~85%</span>
+          <span class="metric-key">Avg SLA Hit Rate</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val">10</span>
+          <span class="metric-key">Queues Monitored</span>
+        </div>
+      </div>
+      <div class="project-tools">
+        <span class="tool-chip">Google Sheets</span>
+        <span class="tool-chip">COUNTIFS / INDIRECT</span>
+        <span class="tool-chip">INDEX/MATCH</span>
+        <span class="tool-chip">Dynamic Arrays</span>
+      </div>
+    </div>
+
+    <!-- LOOKER STUDIO -->
+    <div class="project-card reveal">
+      <span class="project-tag tag-bi">BI & Dashboard</span>
+      <h3 class="project-title">Operational Dashboard — Telkom Indonesia</h3>
+      <p class="project-desc">Built a weekly performance dashboard in Looker Studio for a Digital Broadcast Network Services project at RRI (Radio Republik Indonesia), covering project data from input and cleaning through to visualization. Also produced daily project escort status recaps for project leads.</p>
+      <div class="project-tools">
+        <span class="tool-chip">Looker Studio</span>
+        <span class="tool-chip">Google Sheets</span>
+        <span class="tool-chip">Data Cleaning</span>
+        <span class="tool-chip">Data Visualization</span>
+      </div>
+    </div>
+
+    <!-- ML -->
+    <div class="project-card reveal">
+      <span class="project-tag tag-ml">Machine Learning</span>
+      <h3 class="project-title">Event Recommendation System — Eventhings</h3>
+      <p class="project-desc">Designed and integrated an ML-based recommendation engine for an event listing platform. Built to match event organizers and attendees based on content preferences and behavioral signals, improving relevance of listings surfaced to users.</p>
+      <div class="project-tools">
+        <span class="tool-chip">Python</span>
+        <span class="tool-chip">scikit-learn</span>
+        <span class="tool-chip">TensorFlow</span>
+        <span class="tool-chip">Recommendation Systems</span>
+      </div>
+    </div>
+
+    <!-- HIGO -->
+    <div class="project-card reveal">
+      <span class="project-tag tag-analytics">Analytics</span>
+      <h3 class="project-title">Ad Campaign & Merchant Analytics — HIGO</h3>
+      <p class="project-desc">Tracked digital advertising metrics (CTR, impressions, completed views) for FMCG brands. Built data pipelines for merchant performance reporting, implemented Amplitude Analytics for session tracking, and ran Python Selenium scraping projects to map WiFi merchant pricing trends.</p>
+      <div class="project-tools">
+        <span class="tool-chip">Python Selenium</span>
+        <span class="tool-chip">Amplitude Analytics</span>
+        <span class="tool-chip">Google Analytics</span>
+        <span class="tool-chip">Pandas</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label reveal">// toolkit</p>
+  <h2 class="section-title reveal">Skills &<br>Tools</h2>
+  <div class="skills-grid">
+
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Data & Reporting Tools</div>
+      <div class="skill-item"><span class="skill-name">Google Sheets (Advanced)</span></div>
+      <div class="skill-item"><span class="skill-name">Looker Studio</span></div>
+      <div class="skill-item"><span class="skill-name">Power BI</span></div>
+      <div class="skill-item"><span class="skill-name">Excel</span></div>
+      <div class="skill-item"><span class="skill-name">Google Analytics</span></div>
+      <div class="skill-item"><span class="skill-name">Amplitude Analytics</span></div>
+    </div>
+
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Programming & Automation</div>
+      <div class="skill-item"><span class="skill-name">Google Apps Script</span></div>
+      <div class="skill-item"><span class="skill-name">Python (Pandas, NumPy)</span></div>
+      <div class="skill-item"><span class="skill-name">Python Selenium</span></div>
+      <div class="skill-item"><span class="skill-name">SQL (Intermediate)</span></div>
+      <div class="skill-item"><span class="skill-name">TensorFlow</span></div>
+      <div class="skill-item"><span class="skill-name">scikit-learn</span></div>
+    </div>
+
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Domain Expertise</div>
+      <div class="skill-item"><span class="skill-name">SLA & Workforce Analytics</span></div>
+      <div class="skill-item"><span class="skill-name">Operational Reporting</span></div>
+      <div class="skill-item"><span class="skill-name">Reporting Automation</span></div>
+      <div class="skill-item"><span class="skill-name">ETL Pipeline Development</span></div>
+      <div class="skill-item"><span class="skill-name">Data Quality & QA</span></div>
+      <div class="skill-item"><span class="skill-name">Machine Learning</span></div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ORGANIZATIONS -->
 <section id="organizations">
   <p class="section-label reveal">// community & leadership</p>
@@ -1204,7 +1204,7 @@
 <section id="contact">
   <div class="contact-inner reveal">
     <h2 class="contact-title">Let's work together</h2>
-    <p class="contact-sub">Open to Data Analyst roles — full-time, hybrid, or remote.<br>Based in Surabaya, open to relocation.</p>
+    <p class="contact-sub">Open to Data Analyst roles — full-time, hybrid, or remote.<br>Based in Jakarta, open to relocation.</p>
     <div class="contact-links">
       <a href="mailto:arsyaamalia1@gmail.com" class="btn btn-primary">arsyaamalia1@gmail.com</a>
       <a href="https://linkedin.com/in/arsyaamalia/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
@@ -1213,7 +1213,7 @@
 </section>
 
 <footer>
-  <span style="color:var(--accent);">arsya.ar</span> &nbsp;·&nbsp; built with intention &nbsp;·&nbsp; Surabaya, Indonesia &nbsp;·&nbsp; 2026
+  <span style="color:var(--accent);">arsya.ar</span> &nbsp;·&nbsp; built with intention &nbsp;·&nbsp; Jakarta, Indonesia &nbsp;·&nbsp; 2026
 </footer>
 
 <script>
