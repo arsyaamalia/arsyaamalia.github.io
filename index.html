@@ -1028,9 +1028,10 @@
             Tableau Public dashboard visualizing 7-30 days of workforce data across login hours and attendance patterns.
           </p>
           <img 
+            id="dashboardImg"
             src="DashboardCredit.png" 
             alt="Workforce Analytics Dashboard" 
-            style="width: 100%; border-radius: 6px; border: 1px solid var(--border); display: block;">
+            style="width: 100%; border-radius: 6px; border: 1px solid var(--border); display: block; user-select: none; pointer-events: none;">
         </div>
       </div>
     </div>
@@ -1288,6 +1289,27 @@
     navLinks.forEach(a => {
       a.style.color = a.getAttribute('href') === '#' + current ? 'var(--text)' : '';
     });
+  });
+
+  // Disable right-click on dashboard image
+  const dashboardImg = document.getElementById('dashboardImg');
+  
+  // Disable right-click context menu
+  dashboardImg.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    return false;
+  });
+  
+  // Disable drag
+  dashboardImg.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+    return false;
+  });
+  
+  // Disable double-click select
+  dashboardImg.addEventListener('dblclick', (e) => {
+    e.preventDefault();
+    return false;
   });
 </script>
 </body>
