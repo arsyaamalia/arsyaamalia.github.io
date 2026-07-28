@@ -977,50 +977,33 @@
 
     <!-- FEATURED -->
     <div class="project-card featured reveal">
-      <h3>Workforce Analytics Dashboard</h3>
-      <p class="project-desc">
-        Interactive Tableau dashboard analyzing 7-30 days of workforce data across login hours and attendance patterns. Visualizes 6 key metrics: hourly activity heatmap, peak hours analysis, employee timeline, and status distributions by shift and role.
-      </p>
-      
-      <!-- Embed Tableau Dashboard -->
-      <div class="tableau-embed" style="margin: 20px 0; border-radius: 8px; overflow: hidden;">
-        <iframe src="https://public.tableau.com/views/workforce_analytics_dashboard/Dashboard?:showVizHome=no&:embed=true" 
-          width="100%" 
-          height="600" 
-          style="border: 1px solid #E5E7EB; border-radius: 8px;">
-        </iframe>
-      </div>
-      
-      <div class="project-tools">
-        <span class="tool-chip">Tableau Public</span>
-        <span class="tool-chip">Data Visualization</span>
-        <span class="tool-chip">7-Day Login Hours</span>
-        <span class="tool-chip">30-Day Attendance</span>
-      </div>
-      
-      <div style="margin-top: 16px;">
-        <a href="https://public.tableau.com/app/profile/arsya.amalia.ristias/viz/workforce_analytics_dashboard/Dashboard" 
-          target="_blank" 
-          class="btn btn-primary" 
-          style="font-size: 12px; padding: 8px 16px;">
-          Open in Tableau Public ↗
-        </a>
-      </div>
-    </div>
-    <div class="project-card featured reveal">
       <div>
         <span class="project-tag tag-automation">Automation</span>
         <h3 class="project-title">Attendance & Login Hours Report Automation</h3>
-      <p class="project-desc">Built two Google Apps Script automations for the SUB-RTA team at Gear Inc, one for attendance reporting, one for login hours reporting. Each runs on a daily trigger at 07:05 WIB, downloads ByteWorks workforce data, parses the CSV with header-row skipping, filters relevant columns, and accumulates records indefinitely into a centralized Google Sheet. Replaced a manual process that previously took ~15 minutes per report.</p>
+        <p class="project-desc">Built two Google Apps Script automations for the SUB-RTA team at Gear Inc, one for attendance reporting, one for login hours reporting. Each runs on a daily trigger at 07:05 WIB, downloads ByteWorks workforce data, parses the CSV with header-row skipping, filters relevant columns, and accumulates records indefinitely into a centralized Google Sheet. Replaced a manual process that previously took ~15 minutes per report.</p>
+        <!-- Dashboard Embed Section -->
+        <div style="margin: 20px 0; padding: 20px; background: var(--surface2); border-radius: 8px; border: 1px solid var(--border);">
+          <h4 style="margin: 0 0 12px 0; font-size: 14px; color: var(--text);">Interactive Dashboard</h4>
+          <p style="margin: 0 0 12px 0; font-size: 12px; color: var(--muted);">
+            Tableau Public dashboard visualizing 7-30 days of workforce data across login hours and attendance patterns.
+          </p>
+          <img 
+            src="Dashboard.png" 
+            alt="Workforce Analytics Dashboard" 
+            style="width: 100%; border-radius: 6px; border: 1px solid var(--border); display: block;">
+        </div>
         <div class="project-tools">
           <span class="tool-chip">Google Apps Script</span>
           <span class="tool-chip">Google Sheets</span>
           <span class="tool-chip">CSV Parsing</span>
           <span class="tool-chip">Trigger Automation</span>
+          <span class="tool-chip">Tableau Public</span>
+          <span class="tool-chip">Data Visualization</span>
         </div>
         <div class="project-metrics" style="margin-top:20px;">
           <a href="https://github.com/arsyaamalia/workforce-report-automation" target="_blank" class="btn btn-ghost" style="font-size:12px; padding:8px 16px;">GitHub Repo ↗</a>
-          <a href="https://docs.google.com/spreadsheets/d/1cAh1Ko0NwnzyDkwXHPVsxsbAtVxVIZ8g5Tho-WTlEsI/edit?usp=sharing" target="_blank" class="btn btn-primary" style="font-size:12px; padding:8px 16px;">View Demo ↗</a>
+          <a href="https://docs.google.com/spreadsheets/d/1cAh1Ko0NwnzyDkwXHPVsxsbAtVxVIZ8g5Tho-WTlEsI/edit?usp=sharing" target="_blank" class="btn btn-ghost" style="font-size:12px; padding:8px 16px;">View Demo ↗</a>
+          <a href="https://public.tableau.com/app/profile/arsya.amalia.ristias/viz/workforce_analytics_dashboard/Dashboard" target="_blank" class="btn btn-primary" style="font-size:12px; padding:8px 16px;">Tableau Dashboard ↗</a>
         </div>
       </div>
       <div>
