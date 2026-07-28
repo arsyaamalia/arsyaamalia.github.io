@@ -981,6 +981,17 @@
         <span class="project-tag tag-automation">Automation</span>
         <h3 class="project-title">Attendance & Login Hours Report Automation</h3>
         <p class="project-desc">Built two Google Apps Script automations for the SUB-RTA team at Gear Inc, one for attendance reporting, one for login hours reporting. Each runs on a daily trigger at 07:05 WIB, downloads ByteWorks workforce data, parses the CSV with header-row skipping, filters relevant columns, and accumulates records indefinitely into a centralized Google Sheet. Replaced a manual process that previously took ~15 minutes per report.</p>
+        <div style="margin-top:28px; padding:24px; background:var(--surface2); border-radius:6px; border:1px solid var(--border);">
+          <div style="font-family:var(--mono);font-size:12px;color:var(--green);margin-bottom:12px;">// daily_trigger.gs</div>
+          <div style="font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;">
+            <span style="color:var(--accent);">function</span> <span style="color:var(--text);">downloadLoginHours</span>() {<br>
+            &nbsp;&nbsp;<span style="color:var(--muted);">// 07:05 WIB daily trigger</span><br>
+            &nbsp;&nbsp;<span style="color:var(--accent);">const</span> data = fetchByteworks();<br>
+            &nbsp;&nbsp;<span style="color:var(--accent);">const</span> parsed = parseCSV(data);<br>
+            &nbsp;&nbsp;appendToSheet(parsed);<br>
+            }
+          </div>
+        </div>
         <div class="project-metrics">
           <div class="metric">
             <span class="metric-val">0%</span>
@@ -993,17 +1004,6 @@
           <div class="metric">
             <span class="metric-val">2</span>
             <span class="metric-key">Automations Deployed</span>
-          </div>
-        </div>
-        <div style="margin-top:28px; padding:24px; background:var(--surface2); border-radius:6px; border:1px solid var(--border);">
-          <div style="font-family:var(--mono);font-size:12px;color:var(--green);margin-bottom:12px;">// daily_trigger.gs</div>
-          <div style="font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;">
-            <span style="color:var(--accent);">function</span> <span style="color:var(--text);">downloadLoginHours</span>() {<br>
-            &nbsp;&nbsp;<span style="color:var(--muted);">// 07:05 WIB daily trigger</span><br>
-            &nbsp;&nbsp;<span style="color:var(--accent);">const</span> data = fetchByteworks();<br>
-            &nbsp;&nbsp;<span style="color:var(--accent);">const</span> parsed = parseCSV(data);<br>
-            &nbsp;&nbsp;appendToSheet(parsed);<br>
-            }
           </div>
         </div>
         <div class="project-tools">
