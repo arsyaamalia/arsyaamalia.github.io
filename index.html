@@ -736,9 +736,9 @@
     <span></span>
   </button>
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-    <span class="toggle-icon" id="toggleIcon">🌙</span>
+    <span class="toggle-icon" id="toggleIcon">☀️</span>
     <div class="toggle-track"><div class="toggle-thumb"></div></div>
-    <span id="toggleLabel">Dark</span>
+    <span id="toggleLabel">Light</span>
   </button>
 </nav>
 
@@ -1324,14 +1324,17 @@
   // Light is default — check if user previously chose dark
   if (localStorage.getItem('theme') === 'dark') {
     html.classList.add('dark');
+    toggleIcon.textContent = '🌙';
+    toggleLabel.textContent = 'Dark';
+  } else {
     toggleIcon.textContent = '☀️';
     toggleLabel.textContent = 'Light';
   }
 
   toggleBtn.addEventListener('click', () => {
     const isDark = html.classList.toggle('dark');
-    toggleIcon.textContent = isDark ? '☀️' : '🌙';
-    toggleLabel.textContent = isDark ? 'Light' : 'Dark';
+    toggleIcon.textContent = isDark ? '🌙' : '☀️';
+    toggleLabel.textContent = isDark ? 'Dark' : 'Light';
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
   // Scroll reveal
