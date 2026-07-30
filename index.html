@@ -349,8 +349,7 @@
 
   /* ── PROJECTS ── */
   .projects-grid {
-    columns: 2;
-    column-gap: 24px;
+    position: relative; /* jadi anchor untuk card yang di-absolute-kan */
   }
 
   .project-card {
@@ -358,15 +357,14 @@
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 32px;
-    transition: all 0.3s ease;
-    position: relative;
+    transition: all 0.3s ease, top 0.3s ease, left 0.3s ease;
+    position: absolute;
     overflow: hidden;
-    break-inside: avoid;     /* cegah 1 card kepotong di antara 2 kolom */
-    margin-bottom: 24px;     /* pengganti "gap" vertikal, karena columns cuma punya column-gap (horizontal) */
+    width: calc(50% - 12px); /* 2 kolom, gap 24px */
   }
 
   .project-card.featured {
-    column-span: all;        /* keluar dari alur kolom, full width di atas */
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -1362,6 +1360,47 @@
   dashboardImg.addEventListener('dblclick', (e) => {
     e.preventDefault();
     return false;
+  });
+  function layoutMasonry() {
+    const grid = document.querySelector('.projects-grid');
+    const cards = Array.from(grid.querySelectorAll('.project-card'));
+    const gap = 24;
+    const isMobile = window.innerWidth < 768; // sesuaikan breakpoint-mu
+    const columns = isMobile ? 1 : 2;
+    const colWidth = (grid.offsetWidth - gap * (columns - 1)) / columns;
+    const colHeights = new Array(columns).fill(0);
+
+    cards.forEach(card => {
+      if (card.classList.contains('featured')) {
+        // featured selalu full-width, taruh di atas semua kolom saat ini
+        const top = Math.max(...colHeights);
+        card.style.left = '0px';
+        card.style.top = top + 'px';
+        card.style.width = grid.offsetWidth + 'px';
+        const h = top + card.offsetHeight + gap;
+        colHeights.fill(h);
+        return;
+      }
+      // cari kolom paling pendek
+      const col = colHeights.indexOf(Math.min(...colHeights));
+      const left = col * (colWidth + gap);
+      const top = colHeights[col];
+
+      card.style.width = colWidth + 'px';
+      card.style.left = left + 'px';
+      card.style.top = top + 'px';
+
+      colHeights[col] = top + card.offsetHeight + gap;
+    });
+
+    grid.style.height = Math.max(...colHeights) + 'px';
+  }
+
+  window.addEventListener('load', layoutMasonry);
+  window.addEventListener('resize', layoutMasonry);
+  // jalankan ulang juga kalau ada gambar yang telat load dan mengubah tinggi card
+  document.querySelectorAll('.projects-grid img').forEach(img => {
+    img.addEventListener('load', layoutMasonry);
   });
 </script>
 </body>
