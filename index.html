@@ -682,67 +682,6 @@
     .contact-inner { padding: 40px 24px; }
     .hero-stats { gap: 32px; flex-wrap: wrap; }
   }
-  @media print {
-
-    /* ── Reset masonry JS positioning — absolute + JS-calculated top/left akan
-      kacau kalau dipertahankan saat print, jadi kembalikan ke flow normal ── */
-    .projects-grid {
-      position: static !important;
-      height: auto !important;
-      display: block !important;
-    }
-
-    .project-card {
-      position: static !important;
-      top: auto !important;
-      left: auto !important;
-      width: 100% !important;
-      margin-bottom: 20px !important;
-      break-inside: avoid;      /* cegah 1 card terpotong antar halaman */
-      page-break-inside: avoid; /* fallback untuk browser lama */
-      box-shadow: none !important;
-      transform: none !important;
-    }
-
-    .project-card.featured {
-      display: block !important; /* grid 2 kolom di dalam featured card kadang gepeng saat print, aman dijadikan block */
-    }
-
-    /* ── Paksa semua elemen fade-in-on-scroll (.reveal) full terlihat ── */
-    .reveal {
-      opacity: 1 !important;
-      transform: none !important;
-      transition: none !important;
-      animation: none !important;
-    }
-
-    /* ── Sembunyikan elemen yang nggak relevan di dokumen statis ── */
-    .theme-toggle,
-    nav {
-      display: none !important;
-    }
-
-    /* ── Cetak URL link setelah teksnya, karena PDF nggak bisa diklik ── */
-    .project-card a[href]:after {
-      content: " (" attr(href) ")";
-      font-size: 9px;
-      color: #666;
-      word-break: break-all;
-    }
-
-    /* ── Pastikan warna dasar aman dibaca di kertas putih ── */
-    body {
-      background: #ffffff !important;
-      color: #111111 !important;
-    }
-
-    /* Hilangkan hover-only effect residu */
-    .project-card:hover,
-    .project-card:hover::before {
-      box-shadow: none !important;
-      border-color: inherit !important;
-    }
-  }
 </style>
 </head>
 <body>
