@@ -349,9 +349,8 @@
 
   /* ── PROJECTS ── */
   .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    columns: 2;
+    column-gap: 24px;
   }
 
   .project-card {
@@ -362,28 +361,12 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    break-inside: avoid;     /* cegah 1 card kepotong di antara 2 kolom */
+    margin-bottom: 24px;     /* pengganti "gap" vertikal, karena columns cuma punya column-gap (horizontal) */
   }
-
-  .project-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--green));
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .project-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-3px);
-    box-shadow: 0 20px 60px rgba(79,142,247,0.08);
-  }
-
-  .project-card:hover::before { opacity: 1; }
 
   .project-card.featured {
-    grid-column: span 2;
+    column-span: all;        /* keluar dari alur kolom, full width di atas */
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -1059,7 +1042,7 @@
       </div>
       <div class="project-metrics" style="margin-top:20px;">
         <a href="https://github.com/arsyaamalia/workforce-report-automation" target="_blank" class="btn btn-ghost" style="font-size:12px; padding:8px 16px;">GitHub Repo ↗</a>
-        <a href="https://datastudio.google.com/s/iKW2-lP6Wek" target="_blank" class="btn btn-primary" style="font-size:12px; padding:8px 16px;">Looker Data Studio Dashboard ↗</a>
+        <a href="https://datastudio.google.com/s/hdhg7jpMGtk" target="_blank" class="btn btn-primary" style="font-size:12px; padding:8px 16px;">Looker Data Studio Dashboard ↗</a>
       </div>
       <div>
         <!-- Dashboard Embed Section -->
